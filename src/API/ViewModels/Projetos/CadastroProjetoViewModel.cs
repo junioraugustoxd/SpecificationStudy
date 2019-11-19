@@ -24,10 +24,10 @@ namespace API.ViewModels.Projetos
         [Required]
         public decimal ValorSolicitado { get; set; }
 
-        public List<RateioDRCommand> DRs { get; set; }
+        public List<RateioDRViewModel> DRs { get; set; }
     }
 
-    public class RateioDRCommand
+    public class RateioDRViewModel
     {
         public string SiglaRegional { get; set; }
 
