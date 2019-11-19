@@ -1,4 +1,4 @@
-﻿using API.Commands.Projetos;
+﻿using API.ViewModels.Projetos;
 using Domain.Contracts;
 using Domain.Entities;
 using Domain.Validation.Projetos;
@@ -19,16 +19,16 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar([FromBody] CadastroProjetoCommand command)
+        public IActionResult Cadastrar([FromBody] CadastroProjetoViewModel viewModel)
         {
-            var projeto = new Projeto(command.Codigo, 
-                                      command.Nome,
-                                      command.ValorSolicitado,
-                                      command.TipoProjetoId,
-                                      command.DataInicioPrevista,
-                                      command.DataTerminoPrevista);
+            var projeto = new Projeto(viewModel.Codigo,
+                                      viewModel.Nome,
+                                      viewModel.ValorSolicitado,
+                                      viewModel.TipoProjetoId,
+                                      viewModel.DataInicioPrevista,
+                                      viewModel.DataTerminoPrevista);
 
-                foreach (var dr in command.DRs)
+                foreach (var dr in viewModel.DRs)
                     projeto.AdicionarDRParticipante(new RateioDR(dr.SiglaRegional, dr.ValorTotal, dr.ValorParticipacaoDN));
 
             var resultadoValidacao = new ValidationResult();

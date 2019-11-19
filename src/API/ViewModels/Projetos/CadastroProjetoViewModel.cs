@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace API.Commands.Projetos
+namespace API.ViewModels.Projetos
 {
-    public class CadastroProjetoCommand
+    public class CadastroProjetoViewModel
     {
         [Required]
         public string Codigo { get; set; }
